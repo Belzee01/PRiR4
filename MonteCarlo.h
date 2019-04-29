@@ -22,7 +22,6 @@ private:
 	void calcInitialDr();
 	double calcContribution( int idx, double xx, double yy );
 	double deltaEp( int idx, double oldX, double oldY, double newX, double newY );
-	double calcPartialHist(long* result, int idx, int scale);
 	double rnd() {
 		return random() * MAX_RANDOM;
 	}

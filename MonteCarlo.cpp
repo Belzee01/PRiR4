@@ -125,38 +125,7 @@ void MonteCarlo::calcMC( int draws ) {
 
 // to proszę zrównoleglić
 long *MonteCarlo::getHistogram( int size ) {
-	// long *result = new long[ size ];
-	// int i, j, k;
-	// int particles_size = this->particles->getNumberOfParticles();
-
-	// #pragma omp parallel for shared(result, size) private(i)
-	// for ( i = 0; i < size; i++ )
-	// 	result[ i ] = 0;
-
-	// double scale = size / particles->getBoxSize();
-
-	// int index;
-	// #pragma omp parallel
-	// {
-
-	// 	long hist_local[size] = {0};
-
-	// 	#pragma omp parallel for shared(result, particles_size, scale) private(i, index)
-	// 	for (i = 0; i < particles_size; i++ ) {
-	// 		// #pragma omp parallel for shared(result, i, scale) private(j, index)
-	// 		for ( j = 0; j < i; j++  ) {
-	// 			index = (int)( particles->getDistanceBetween( i, j ) * scale );
-	// 			hist_local[ index ] ++;
-	// 		}
-	// 	}
-	// 	#pragma omp critical
-	// 	for ( k = 0; k < size; k++ )
-	// 		result[ k ] = hist_local[k];
-	// }
-	
-	// return result;
-
-	int i, j, k;
+	int i;
 
 	long *result = new long[ size ];
 	for ( i = 0; i < size; i++ )
@@ -181,7 +150,5 @@ long *MonteCarlo::getHistogram( int size ) {
 			result[i] += hist[i];
 	}
 
-	
-	
 	return result;
 }
